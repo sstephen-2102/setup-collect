@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collect workflow architecture</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #152033;
+      --line: #334155;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --search: #38bdf8;
+      --collect: #34d399;
+      --process: #fbbf24;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header, main { max-width: 1080px; margin: 0 auto; padding: 28px; }
+    h1 { margin-bottom: 6px; }
+    .lede { color: var(--muted); margin-bottom: 28px; }
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .col {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+    }
+    .col h2 {
+      margin: 0 0 12px;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .search h2 { color: var(--search); }
+    .collect h2 { color: var(--collect); }
+    .process h2 { color: var(--process); }
+    .box {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      background: #0f172a;
+      font-size: 0.92rem;
+    }
+    .box small { display: block; color: var(--muted); margin-top: 4px; }
+    .arrow {
+      text-align: center;
+      color: var(--muted);
+      margin: 14px 0 4px;
+      font-size: 0.85rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 28px;
+      background: var(--panel);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-size: 0.85rem; }
+    .note { color: var(--muted); margin-top: 18px; }
+    @media (max-width: 800px) {
+      .row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Collect workflow architecture</h1>
+    <p class="lede">Search, Collect, Process for weekly technology discussion posts. Collection is automated; article selection is not.</p>
+  </header>
+  <main>
+    <div class="row">
+      <section class="col search">
+        <h2>1. Search</h2>
+        <div class="box">sources.yaml<small>7 curated feeds + why each was chosen</small></div>
+        <div class="box">MIT Technology Review</div>
+        <div class="box">Ars Technica</div>
+        <div class="box">TechCrunch</div>
+        <div class="box">IEEE Spectrum</div>
+        <div class="box">Hacker News</div>
+        <div class="box">Google AI Blog</div>
+        <div class="box">The Verge</div>
+      </section>
+      <section class="col collect">
+        <h2>2. Collect — daily 07:00</h2>
+        <div class="box">launchd plist<small>com.sanjay.techcollect</small></div>
+        <div class="arrow">▼</div>
+        <div class="box">run_collect.sh → collect.py</div>
+        <div class="arrow">▼ HTTP GET, RSS/Atom</div>
+        <div class="box">Parse title, URL, date, summary</div>
+        <div class="box">Keep last 7 days only</div>
+        <div class="box">Keyword score + URL dedupe</div>
+        <div class="arrow">▼</div>
+        <div class="box">articles.json + articles.csv + collect.log</div>
+      </section>
+      <section class="col process">
+        <h2>3. Process — human</h2>
+        <div class="box">weekly_digest.html<small>Ranked briefing, source health</small></div>
+        <div class="arrow">▼ Wednesday, 15 min</div>
+        <div class="box">Star 2–3 candidate articles</div>
+        <div class="arrow">▼ Sunday, 45–60 min</div>
+        <div class="box">Confirm date ≤ 7 days</div>
+        <div class="box">Read full article</div>
+        <div class="box">Write discussion post</div>
+        <div class="arrow">▼ monthly</div>
+        <div class="box">Replace dead or redundant sources</div>
+      </section>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Cadence</th><th>Action</th><th>Owner</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Daily, 7:00 AM</td><td>Fetch feeds, refresh 7-day digest</td><td>Automated</td></tr>
+        <tr><td>Wednesday evening</td><td>Skim digest, star candidates</td><td>Human, 15 min</td></tr>
+        <tr><td>Sunday morning</td><td>Pick one in-window article and write the post</td><td>Human, 45–60 min</td></tr>
+        <tr><td>Monthly</td><td>Source-list maintenance</td><td>Human, 20 min</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Outputs live in <code>data/</code>. The discussion post is still written by hand; the pipeline only guarantees a fresh, dated pool of candidates.</p>
+  </main>
+</body>
+</html>

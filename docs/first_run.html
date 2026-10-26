@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>First collect run</title>
+<style>
+  body { margin:0; background:#0b1220; color:#e2e8f0; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  header { padding:28px 32px 8px; font-family: "Segoe UI", system-ui, sans-serif; }
+  h1 { margin:0 0 6px; }
+  p { color:#94a3b8; }
+  pre { margin: 12px 32px 32px; background:#111827; border:1px solid #334155; border-radius:12px; padding:20px; line-height:1.45; }
+  .ok { color:#34d399; }
+</style></head>
+<body>
+<header>
+  <h1>First Collect run — 25 Oct 2026</h1>
+  <p>All 7 sources responded. 89 articles kept in the 7-day window.</p>
+</header>
+<pre>
+.venv/bin/python collect.py
+
+Collecting MIT Technology Review
+  <span class="ok">OK</span>: fetched=10 kept=10
+Collecting Ars Technica
+  <span class="ok">OK</span>: fetched=20 kept=20
+Collecting TechCrunch
+  <span class="ok">OK</span>: fetched=20 kept=20
+Collecting IEEE Spectrum
+  <span class="ok">OK</span>: fetched=30 kept=8
+Collecting Hacker News
+  <span class="ok">OK</span>: fetched=20 kept=20
+Collecting Google AI Blog
+  <span class="ok">OK</span>: fetched=20 kept=1
+Collecting The Verge
+  <span class="ok">OK</span>: fetched=10 kept=10
+Digest written: data/weekly_digest.html (89 articles)
+</pre>
+</body></html>

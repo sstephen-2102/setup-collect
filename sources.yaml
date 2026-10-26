@@ -1,0 +1,92 @@
+# Curated information sources for the course Collect workflow.
+# Each source is pulled via RSS so collection can run unattended.
+
+window_days: 7
+max_articles_per_source: 20
+keyword_boost:
+  - AI
+  - artificial intelligence
+  - machine learning
+  - LLM
+  - generative
+  - GPU
+  - semiconductor
+  - cybersecurity
+  - privacy
+  - regulation
+  - robotics
+  - OpenAI
+  - Google
+  - NVIDIA
+  - chip
+  - data center
+
+sources:
+  - id: mit_technology_review
+    name: MIT Technology Review
+    category: Independent tech journalism
+    homepage: https://www.technologyreview.com/
+    rss: https://www.technologyreview.com/feed/
+    why: >
+      Research-backed coverage of AI, computing, and emerging science.
+      Better for discussion posts than product-announcement blogs because
+      articles usually explain implications, not just launches.
+
+  - id: ars_technica
+    name: Ars Technica
+    category: Technical journalism
+    homepage: https://arstechnica.com/
+    rss: https://feeds.arstechnica.com/arstechnica/index
+    why: >
+      Deep technical reporting with enough engineering detail to evaluate
+      claims. Useful when a weekly article needs more than a press-release
+      rewrite.
+
+  - id: techcrunch
+    name: TechCrunch
+    category: Industry and startup news
+    homepage: https://techcrunch.com/
+    rss: https://techcrunch.com/feed/
+    why: >
+      Fast coverage of funding, product launches, and platform strategy.
+      Complements slower research journalism with the business and
+      marketplace angle.
+
+  - id: ieee_spectrum
+    name: IEEE Spectrum
+    category: Professional engineering publication
+    homepage: https://spectrum.ieee.org/
+    rss: https://spectrum.ieee.org/feeds/feed.rss
+    why: >
+      The IEEE's magazine covers hardware, energy, robotics, and computing
+      from a professional-engineering point of view. Adds rigor that
+      consumer tech sites often skip.
+
+  - id: hacker_news
+    name: Hacker News
+    category: News aggregator
+    homepage: https://news.ycombinator.com/
+    rss: https://hnrss.org/frontpage
+    why: >
+      Practitioner aggregator. Surfaces papers, independent blogs, and
+      debates that mainstream outlets miss, and shows what engineers are
+      actually discussing this week.
+
+  - id: google_ai_blog
+    name: Google AI Blog
+    category: Company research blog
+    homepage: https://blog.google/technology/ai/
+    rss: https://blog.google/technology/ai/rss/
+    why: >
+      Primary-source company blog. Lets me compare a vendor's own account
+      of a model or product against independent coverage from the
+      journalism sources above.
+
+  - id: the_verge
+    name: The Verge
+    category: Consumer tech and policy
+    homepage: https://www.theverge.com/
+    rss: https://www.theverge.com/rss/index.xml
+    why: >
+      Broader consumer-tech and policy coverage. Helpful for stories about
+      regulation, platforms, and how new technology actually reaches users.
