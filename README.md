@@ -4,6 +4,9 @@ Automated **Collect** workflow for weekly technology discussion posts.
 
 The course requires one tech article from the **last 7 days**. This folder is the collection layer: a curated source list, a daily RSS ingest, and a ranked digest used to pick the article.
 
+**Repository:** [github.com/sstephen-2102/setup-collect](https://github.com/sstephen-2102/setup-collect)  
+**Full write-up:** [FINAL_REPORT.md](FINAL_REPORT.md)
+
 ## Quick start
 
 ```bash
@@ -17,6 +20,7 @@ open data/weekly_digest.html
 
 | File | What it is |
 |---|---|
+| [FINAL_REPORT.md](FINAL_REPORT.md) | End-to-end report: repo, design, frequency, implementation |
 | [DISCUSSION_POST.md](DISCUSSION_POST.md) | Course discussion text: sources, why, architecture, frequency |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Technical architecture, data flow, and review cadence |
 | [sources.yaml](sources.yaml) | The seven monitored sources |
@@ -32,6 +36,7 @@ Setup Collect/
 ├── collect.py                Collect engine
 ├── run_collect.sh            venv bootstrap + runner
 ├── requirements.txt
+├── FINAL_REPORT.md
 ├── ARCHITECTURE.md
 ├── DISCUSSION_POST.md
 ├── schedule/                 daily 07:00 launchd job
